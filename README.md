@@ -40,4 +40,95 @@ The goal is to replace confusion, expensive software, and manual work with clean
 ---
 
 ## 🗂️ File Structure
+Netisore/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── invoice.html
+├── budget.html
+├── form-assist.html
+├── chatbot.html
+├── email-writer.html
+├── translator.html
+├── legal.html
+├── resume.html
+
+
+---
+
+## 🖥️ Technology Stack
+
+- HTML5  
+- CSS3  
+- JavaScript  
+- API Integrations (AI services)  
+- Netlify Hosting  
+
+---
+
+## 🎯 Project Vision
+
+Netisore aims to become a **one-stop digital assistant** for:
+
+- Freelancers  
+- Students  
+- Small businesses  
+- Startup founders  
+- Professionals  
+
+It reduces dependence on expensive tools and makes professional digital work accessible to everyone.
+
+---
+
+## 🔐 Data & Security
+
+Netisore is built with a privacy-first mindset:
+- No unnecessary data collection  
+- Secure form handling  
+- No selling of user data  
+- Client-side processing wherever possible  
+
+---
+
+## 🌍 Live Demo
+
+https://agriguardvision.netlify.app
+
+---
+
+## 🧑‍💻 How to Run Locally
+
+1. Download or clone the repository  
+2. Open `index.html` in any modern browser  
+3. All tools will work locally  
+
+No server or setup required.
+
+---
+
+## 🚀 Future Plans
+
+- User accounts & dashboards  
+- Cloud saving  
+- PDF export  
+- Mobile app  
+- AI upgrades  
+- Payments & subscriptions  
+
+---
+
+## 🤝 Contribution
+
+Ideas, feedback, and collaboration are welcome.
+
+---
+
+## 🧠 Built By
+
+**Vikrant Kulkarni**  
+**Siddharth Tarde**  
+
+Founders of Netisore
 
