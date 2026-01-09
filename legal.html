@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Docs - Netisore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-body">
+    <header>
+        <a href="index.html" class="logo"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Logo"> Netisore</a>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+    </header>
+    <div class="tool-wrapper">
+        <div class="tool-container">
+            <div class="tool-header-inner">
+                <h1>Legal Doc Generator</h1>
+                <p>Draft quick Non-Disclosure Agreements (NDA).</p>
+            </div>
+            <div class="tool-form">
+                <div class="tool-grid-2">
+                    <div class="form-group"><label>Disclosing Party (You)</label><input type="text" id="partyA" placeholder="Your Name/Company"></div>
+                    <div class="form-group"><label>Receiving Party (Them)</label><input type="text" id="partyB" placeholder="Their Name/Company"></div>
+                </div>
+                <div class="form-group"><label>Effective Date</label><input type="date" id="docDate"></div>
+                <button class="btn" style="width:100%;" onclick="genLegal()">Generate Agreement</button>
+            </div>
+            <div id="result" class="output-box">
+                <h2 style="text-align:center; margin-bottom:1.5rem;">NON-DISCLOSURE AGREEMENT</h2>
+                <div style="font-family:serif; line-height:1.6; color:var(--text-main);">
+                    <p>This Agreement is made on <strong id="outDate">Date</strong>, between <strong id="outA">Party A</strong> ("Disclosing Party") and <strong id="outB">Party B</strong> ("Receiving Party").</p>
+                    <br>
+                    <p>1. <strong>Confidential Information:</strong> The Receiving Party agrees not to disclose any confidential information obtained from the Disclosing Party.</p>
+                    <br>
+                    <p>2. <strong>Term:</strong> This agreement shall remain in effect for a period of 2 years from the date hereof.</p>
+                    <br>
+                    <div style="display:flex; justify-content:space-between; margin-top:3rem;">
+                        <div>_________________<br>Signed (Party A)</div>
+                        <div>_________________<br>Signed (Party B)</div>
+                    </div>
+                </div>
+                <button class="btn btn-outline no-print" onclick="window.print()" style="margin-top:2rem; width:100%;">Print Document</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('docDate').valueAsDate = new Date();
+        function genLegal(){
+            document.getElementById('outA').innerText = document.getElementById('partyA').value || "[Party A]";
+            document.getElementById('outB').innerText = document.getElementById('partyB').value || "[Party B]";
+            document.getElementById('outDate').innerText = document.getElementById('docDate').value;
+            document.getElementById('result').classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netisore - AI Powered Digital Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Netisore">
+            Netisore
+        </a>
+        
+        <nav>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+            <ul id="navMenu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Our Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="btn" id="loginBtn" onclick="openAuthModal('login')">Login / Sign Up</button></li>
+                <li id="userProfileArea"></li>
+                <li><button class="btn-outline" id="toggleTheme" style="padding:5px 10px; border-radius:50%;">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Supercharge Your Workflow with <br> <span>AI-Powered Tools</span></h1>
+            <p>From instant invoice generation to smart email writing. Netisore provides the digital toolkit you need to succeed in 2025.</p>
+            <div class="hero-btns">
+                <a href="#tools" class="btn">Explore Tools</a>
+                <a href="#contact" class="btn btn-outline">Get Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools">
+        <div class="section-header">
+            <h2>Free AI Tools</h2>
+            <p>Powerful utilities available for everyone. No credit card required.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="badge">Popular</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135731.png" alt="Invoice">
+                <h3>Invoice Generator</h3>
+                <p>Create professional PDF invoices instantly.</p>
+                <a href="invoice.html" class="btn">Launch Tool</a>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135716.png" alt="Resume">
+                <h3>Resume Builder</h3>
+                <p>Build ATS-friendly resumes with AI assistance.</p>
+                <a href="resume.html" class="btn">Launch Tool</a>
+            </div>
+            <div class="card">
+                <span class="badge">New</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Email">
+                <h3>AI Email Writer</h3>
+                <p>Draft professional emails from simple prompts.</p>
+                <a href="email-writer.html" class="btn">Launch Tool</a>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Form">
+                <h3>Form Assistant</h3>
+                <p>Auto-format chaotic text into structured data.</p>
+                <a href="form-assist.html" class="btn">Launch Tool</a>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Budget">
+                <h3>Budget Tracker</h3>
+                <p>Simple tracking for personal expenses.</p>
+                <a href="budget.html" class="btn">Launch Tool</a>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Translate">
+                <h3>Smart Translator</h3>
+                <p>Translate text seamlessly between languages.</p>
+                <a href="translator.html" class="btn">Launch Tool</a>
+            </div>
+             <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Chatbot">
+                <h3>Help Chatbot</h3>
+                <p>Instant answers to common queries.</p>
+                <a href="chatbot.html" class="btn">Launch Tool</a>
+            </div>
+             <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Legal">
+                <h3>Legal Docs</h3>
+                <p>Draft NDAs and agreements in seconds.</p>
+                <a href="legal.html" class="btn">Launch Tool</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: rgba(37,99,235,0.03);">
+        <div class="section-header">
+            <h2>Premium Services</h2>
+            <p>High-end development and design for enterprises.</p>
+        </div>
+        <div class="grid">
+            <div class="card" onclick="showComingSoon()" style="cursor: pointer;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721233.png" alt="Web Dev">
+                <h3>Full Stack Web Dev</h3>
+                <p>Custom websites built with React, Node, and AI.</p>
+                <button class="btn-outline">View Details</button>
+            </div>
+            <div class="card" onclick="showComingSoon()" style="cursor: pointer;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="UI UX">
+                <h3>UI/UX Design</h3>
+                <p>Award-winning interfaces that convert users.</p>
+                <button class="btn-outline">View Details</button>
+            </div>
+            <div class="card" onclick="showComingSoon()" style="cursor: pointer;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="Cloud">
+                <h3>Cloud Solutions</h3>
+                <p>Scalable infrastructure on AWS and Azure.</p>
+                <button class="btn-outline">View Details</button>
+            </div>
+            <div class="card" onclick="showComingSoon()" style="cursor: pointer;">
+                <img src="https://cdn-icons-png.flaticon.com/512/842/842615.png" alt="SEO">
+                <h3>AI-Driven SEO</h3>
+                <p>Rank #1 with data-driven content strategies.</p>
+                <button class="btn-outline">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="section-header">
+            <h2>Our Latest Work</h2>
+            <p>Projects we have delivered with excellence.</p>
+        </div>
+        <div class="grid">
+            <div class="card" onclick="showComingSoon()" style="cursor: pointer; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500'); background-size: cover; color: white;">
+                <h3 style="color:white; margin-top:2rem;">FinTech Dashboard</h3>
+                <p style="color:#ddd">React & Python</p>
+            </div>
+            <div class="card" onclick="showComingSoon()" style="cursor: pointer; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=500'); background-size: cover; color: white;">
+                <h3 style="color:white; margin-top:2rem;">E-Commerce App</h3>
+                <p style="color:#ddd">Next.js & Stripe</p>
+            </div>
+            <div class="card" onclick="showComingSoon()" style="cursor: pointer; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500'); background-size: cover; color: white;">
+                <h3 style="color:white; margin-top:2rem;">Data Analytics</h3>
+                <p style="color:#ddd">Python & AI</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="authModal">
+        <div class="modal">
+            <span class="close-modal" onclick="closeModals()">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="openAuthModal('login')">Login</div>
+                <div class="auth-tab" onclick="openAuthModal('signup')">Sign Up</div>
+            </div>
+            <h2 id="authTitle" style="text-align:center; margin-bottom:1.5rem; color:var(--text-main);">Welcome Back</h2>
+            <form id="authForm">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="emailInput" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="********" required>
+                </div>
+                <button type="submit" id="authSubmit" class="btn" style="width:100%;">Login</button>
+            </form>
+            <p style="text-align:center; margin-top:1rem; font-size:0.85rem; color:var(--text-muted);">
+                By continuing, you agree to Netisore's Terms of Service.
+            </p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="ucModal">
+        <div class="modal" style="text-align:center;">
+            <span class="close-modal" onclick="closeModals()">&times;</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/595/595067.png" alt="Working" style="width:80px; margin-bottom:1rem;">
+            <h2 style="color:var(--text-main);">Coming Soon</h2>
+            <p style="color:var(--text-muted); margin: 1rem 0;">
+                We are currently crafting this premium experience. <br>Join our newsletter to get notified when it launches.
+            </p>
+            <button class="btn" onclick="closeModals()">Got it</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Netisore</h4>
+                <p style="color:#94a3b8; line-height:1.6;">Transforming ideas into digital reality through AI-driven innovation and design excellence.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Founders</h4>
+                <p style="color:#94a3b8; margin-bottom:0.5rem;">Vikrant Kulkarni</p>
+                <p style="color:#94a3b8;">Siddharth Tarde</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Netisore. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

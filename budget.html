@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker - Netisore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-body">
+    <header>
+        <a href="index.html" class="logo"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Logo"> Netisore</a>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+    </header>
+    <div class="tool-wrapper">
+        <div class="tool-container">
+            <div class="tool-header-inner">
+                <h1>Budget Tracker</h1>
+                <p>Manage your expenses smart and easy.</p>
+            </div>
+            <div class="tool-form">
+                <div class="tool-grid-2">
+                    <div class="form-group"><input type="text" id="bDesc" placeholder="Expense Name (e.g. Pizza)"></div>
+                    <div class="form-group"><input type="number" id="bCost" placeholder="Cost (₹)"></div>
+                </div>
+                <button class="btn" style="width:100%;" onclick="addExpense()">Add Expense</button>
+            </div>
+            <div class="output-box active" style="margin-top:2rem;">
+                <h3>History</h3>
+                <div id="expenseList" style="margin-top:1rem; max-height:200px; overflow-y:auto;">
+                    </div>
+                <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-weight:600;">Total Spent:</span>
+                    <span style="font-size:1.5rem; color:var(--accent); font-weight:700;">₹<span id="totalVal">0</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        let total = 0;
+        function addExpense(){
+            const desc = document.getElementById('bDesc').value;
+            const cost = parseFloat(document.getElementById('bCost').value);
+            
+            if(desc && cost){
+                total += cost;
+                document.getElementById('totalVal').innerText = total;
+                
+                const div = document.createElement('div');
+                div.style.cssText = "display:flex; justify-content:space-between; padding:10px; background:var(--primary); margin-bottom:8px; border-radius:8px; border:1px solid var(--border);";
+                div.innerHTML = `<span>${desc}</span><span style="font-weight:600;">₹${cost}</span>`;
+                
+                const list = document.getElementById('expenseList');
+                list.insertBefore(div, list.firstChild);
+                
+                document.getElementById('bDesc').value = '';
+                document.getElementById('bCost').value = '';
+            } else {
+                showToast("Please enter valid details");
+            }
+        }
+    </script>
+</body>
+</html>

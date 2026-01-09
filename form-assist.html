@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Assistant - Netisore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-body">
+    <header>
+        <a href="index.html" class="logo"><img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Logo"> Netisore</a>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+    </header>
+    <div class="tool-wrapper">
+        <div class="tool-container">
+            <div class="tool-header-inner">
+                <h1>Form Data Assistant</h1>
+                <p>Paste messy text, get structured data instantly.</p>
+            </div>
+            <div class="tool-form">
+                <div class="form-group">
+                    <label>Paste Raw Data</label>
+                    <textarea id="rawData" style="width:100%; height:100px; padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--secondary); color:var(--text-main);" placeholder="Name: Vikrant, Age: 20, College: SPPU, City: Pune"></textarea>
+                </div>
+                <button class="btn" style="width:100%; margin-top:1rem;" onclick="formatData()">Format Data</button>
+            </div>
+            <div id="result" class="output-box">
+                <h3>Structured Output:</h3>
+                <ul id="parsedList" style="list-style:disc; margin-left:1.5rem; margin-top:1rem; color:var(--text-muted);"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function formatData(){
+            const raw = document.getElementById('rawData').value;
+            if(!raw) return showToast("Please enter some data!");
+            
+            const list = document.getElementById('parsedList');
+            list.innerHTML = "";
+            
+            // Logic to split by commas or newlines
+            const items = raw.split(/,|\n/);
+            
+            items.forEach(item => {
+                if(item.trim()){
+                    const li = document.createElement('li');
+                    li.innerText = item.trim();
+                    li.style.marginBottom = "5px";
+                    list.appendChild(li);
+                }
+            });
+            document.getElementById('result').classList.add('active');
+        }
+    </script>
+</body>
+</html>

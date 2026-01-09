@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Netisore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-body">
+    <header>
+        <a href="index.html" class="logo"><img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Logo"> Netisore</a>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+    </header>
+    <div class="tool-wrapper">
+        <div class="tool-container">
+            <div class="tool-header-inner">
+                <h1>Help Assistant</h1>
+                <p>Ask me anything about our services.</p>
+            </div>
+            
+            <div class="chat-window" id="chatWindow">
+                <div class="chat-bubble chat-bot">Hello! I am the Netisore AI. How can I help you today?</div>
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                <input type="text" id="chatInput" style="flex:1; padding:12px; border-radius:30px; border:1px solid var(--border); background:var(--secondary); color:var(--text-main); outline:none;" placeholder="Type your message...">
+                <button class="btn" style="border-radius:50%; width:50px; height:50px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function sendMessage(){
+            const input = document.getElementById('chatInput');
+            const window = document.getElementById('chatWindow');
+            const text = input.value;
+            
+            if(!text) return;
+
+            // User Message
+            window.innerHTML += `<div class="chat-bubble chat-user">${text}</div>`;
+            input.value = '';
+            window.scrollTop = window.scrollHeight;
+
+            // Simulated Bot Response
+            setTimeout(() => {
+                let response = "That's interesting! Tell me more.";
+                if(text.toLowerCase().includes('hello')) response = "Hi there! Looking for tools?";
+                if(text.toLowerCase().includes('price')) response = "Most of our basic tools are free!";
+                
+                window.innerHTML += `<div class="chat-bubble chat-bot">${response}</div>`;
+                window.scrollTop = window.scrollHeight;
+            }, 1000);
+        }
+        // Allow Enter key
+        document.getElementById('chatInput').addEventListener("keypress", function(event) {
+            if (event.key === "Enter") sendMessage();
+        });
+    </script>
+</body>
+</html>

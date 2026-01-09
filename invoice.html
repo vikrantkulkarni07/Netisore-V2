@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator - Netisore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-body">
+    <header>
+        <a href="index.html" class="logo"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135731.png" alt="Logo"> Netisore</a>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+    </header>
+
+    <div class="tool-wrapper">
+        <div class="tool-container">
+            <div class="tool-header-inner">
+                <h1>Invoice Generator</h1>
+                <p>Create compliant and professional invoices in seconds.</p>
+            </div>
+
+            <div class="tool-form">
+                <div class="tool-grid-2">
+                    <div class="form-group"><label>Your Business</label><input type="text" id="bizName" placeholder="e.g. Netisore Inc."></div>
+                    <div class="form-group"><label>Client Name</label><input type="text" id="clientName" placeholder="e.g. John Doe"></div>
+                </div>
+                <div class="tool-grid-2">
+                    <div class="form-group"><label>Invoice Number</label><input type="text" id="invNum" value="#INV-2025-001"></div>
+                    <div class="form-group"><label>Date</label><input type="date" id="invDate"></div>
+                </div>
+                <div class="form-group"><label>Service Description</label><input type="text" id="desc" placeholder="e.g. Web Development Services"></div>
+                <div class="tool-grid-2">
+                    <div class="form-group"><label>Amount (₹)</label><input type="number" id="amt" placeholder="0.00"></div>
+                    <div class="form-group"><label>Tax (%)</label><input type="number" id="tax" placeholder="0"></div>
+                </div>
+                <button class="btn" style="width:100%; margin-top:1rem;" onclick="generateInvoice()">Generate Invoice</button>
+            </div>
+
+            <div id="result" class="output-box">
+                <div style="display:flex; justify-content:space-between; margin-bottom:2rem;">
+                    <div>
+                        <h2 id="outBiz" style="color:var(--accent);">Business Name</h2>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Invoice <span id="outNum">#001</span></p>
+                    </div>
+                    <div style="text-align:right;">
+                        <h4 style="color:var(--text-muted);">Bill To:</h4>
+                        <strong id="outClient">Client Name</strong>
+                        <p id="outDate" style="font-size:0.85rem; color:var(--text-muted);">Date</p>
+                    </div>
+                </div>
+                <table style="width:100%; text-align:left; border-collapse: collapse; margin-bottom:2rem;">
+                    <tr style="background:var(--secondary); border-bottom:1px solid var(--border);">
+                        <th style="padding:10px;">Description</th>
+                        <th style="padding:10px; text-align:right;">Total</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:15px 10px;" id="outDesc">Service</td>
+                        <td style="padding:15px 10px; text-align:right;" id="outTotalLine">0.00</td>
+                    </tr>
+                </table>
+                <div style="text-align:right;">
+                    <p>Subtotal: ₹<span id="outSub">0</span></p>
+                    <p>Tax: ₹<span id="outTax">0</span></p>
+                    <h2 style="color:var(--accent); margin-top:10px;">Total: ₹<span id="outFinal">0</span></h2>
+                </div>
+                <button class="btn no-print" onclick="window.print()" style="margin-top:2rem; width:100%;">Download PDF</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('invDate').valueAsDate = new Date();
+        function generateInvoice(){
+            const amt = parseFloat(document.getElementById('amt').value) || 0;
+            const taxRate = parseFloat(document.getElementById('tax').value) || 0;
+            const taxVal = (amt * taxRate) / 100;
+            const total = amt + taxVal;
+
+            document.getElementById('outBiz').innerText = document.getElementById('bizName').value || "Business Name";
+            document.getElementById('outClient').innerText = document.getElementById('clientName').value || "Client Name";
+            document.getElementById('outNum').innerText = document.getElementById('invNum').value;
+            document.getElementById('outDate').innerText = document.getElementById('invDate').value;
+            document.getElementById('outDesc').innerText = document.getElementById('desc').value || "Service";
+            
+            document.getElementById('outTotalLine').innerText = amt.toFixed(2);
+            document.getElementById('outSub').innerText = amt.toFixed(2);
+            document.getElementById('outTax').innerText = taxVal.toFixed(2);
+            document.getElementById('outFinal').innerText = total.toFixed(2);
+
+            document.getElementById('result').classList.add('active');
+        }
+    </script>
+</body>
+</html>

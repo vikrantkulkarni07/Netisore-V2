@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translator - Netisore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-body">
+    <header>
+        <a href="index.html" class="logo"><img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Logo"> Netisore</a>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+    </header>
+    <div class="tool-wrapper">
+        <div class="tool-container">
+            <div class="tool-header-inner">
+                <h1>Smart Translator</h1>
+                <p>Break language barriers instantly.</p>
+            </div>
+            <div class="tool-form">
+                <div class="form-group">
+                    <textarea id="tText" style="width:100%; height:120px; padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--secondary); color:var(--text-main);" placeholder="Type text to translate..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Translate To:</label>
+                    <select id="tLang" style="width:100%; padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--secondary); color:var(--text-main);">
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="hi">Hindi</option>
+                        <option value="de">German</option>
+                    </select>
+                </div>
+                <button class="btn" id="transBtn" style="width:100%;" onclick="translateText()">Translate Now</button>
+            </div>
+            <div id="result" class="output-box">
+                <h3>Translation:</h3>
+                <p id="transOutput" style="font-size:1.1rem; color:var(--accent); margin-top:0.5rem;"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function translateText(){
+            const text = document.getElementById('tText').value;
+            const lang = document.getElementById('tLang').options[document.getElementById('tLang').selectedIndex].text;
+            const btn = document.getElementById('transBtn');
+            
+            if(!text) return showToast("Please enter text!");
+
+            btn.innerText = "Translating...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Mock Translation Logic
+                const mock = `[Translated to ${lang}]: ` + text;
+                document.getElementById('transOutput').innerText = mock;
+                document.getElementById('result').classList.add('active');
+                btn.innerText = "Translate Now";
+                btn.disabled = false;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

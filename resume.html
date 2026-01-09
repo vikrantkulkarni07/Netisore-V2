@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Netisore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-body">
+    <header>
+        <a href="index.html" class="logo"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135716.png" alt="Logo"> Netisore</a>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+    </header>
+
+    <div class="tool-wrapper">
+        <div class="tool-container">
+            <div class="tool-header-inner">
+                <h1>Resume Builder</h1>
+                <p>Build a clean, professional resume instantly.</p>
+            </div>
+            <div class="tool-form">
+                <div class="tool-grid-2">
+                    <div class="form-group"><label>Full Name</label><input type="text" id="rName" placeholder="Vikrant Kulkarni"></div>
+                    <div class="form-group"><label>Job Title</label><input type="text" id="rTitle" placeholder="Software Engineer"></div>
+                </div>
+                <div class="tool-grid-2">
+                    <div class="form-group"><label>Email</label><input type="email" id="rEmail" placeholder="email@example.com"></div>
+                    <div class="form-group"><label>Phone</label><input type="text" id="rPhone" placeholder="+91 99999 99999"></div>
+                </div>
+                <div class="form-group"><label>Professional Summary</label><input type="text" id="rSum" placeholder="A passionate developer..."></div>
+                <div class="form-group"><label>Skills</label><input type="text" id="rSkills" placeholder="Java, Python, React, AWS"></div>
+                <div class="form-group"><label>Experience</label><input type="text" id="rExp" placeholder="Senior Dev at Google (2020-Present)"></div>
+                <button class="btn" style="width:100%; margin-top:1rem;" onclick="generateResume()">Create Resume</button>
+            </div>
+
+            <div id="result" class="output-box" style="background:white; color:black;">
+                <h1 id="outName" style="margin-bottom:0; color:#2563eb;">Your Name</h1>
+                <p id="outTitle" style="font-size:1.1rem; font-weight:600; color:#444;">Job Title</p>
+                <p style="font-size:0.9rem; margin-bottom:1.5rem;"><span id="outEmail">email</span> | <span id="outPhone">phone</span></p>
+                
+                <h3 style="border-bottom:2px solid #2563eb; margin-bottom:0.5rem;">Summary</h3>
+                <p id="outSum" style="margin-bottom:1.5rem;">...</p>
+
+                <h3 style="border-bottom:2px solid #2563eb; margin-bottom:0.5rem;">Experience</h3>
+                <p id="outExp">...</p>
+
+                <h3 style="border-bottom:2px solid #2563eb; margin-bottom:0.5rem; margin-top:1.5rem;">Skills</h3>
+                <p id="outSkills">...</p>
+                
+                <button class="btn no-print" onclick="window.print()" style="margin-top:2rem; width:100%;">Print Resume</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function generateResume(){
+            document.getElementById('outName').innerText = document.getElementById('rName').value || "Name";
+            document.getElementById('outTitle').innerText = document.getElementById('rTitle').value || "Title";
+            document.getElementById('outEmail').innerText = document.getElementById('rEmail').value || "Email";
+            document.getElementById('outPhone').innerText = document.getElementById('rPhone').value || "Phone";
+            document.getElementById('outSum').innerText = document.getElementById('rSum').value || "Professional Summary...";
+            document.getElementById('outSkills').innerText = document.getElementById('rSkills').value || "Skills...";
+            document.getElementById('outExp').innerText = document.getElementById('rExp').value || "Experience details...";
+            document.getElementById('result').classList.add('active');
+        }
+    </script>
+</body>
+</html>
